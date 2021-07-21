@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="design.css">
+        <link rel="stylesheet" href="search.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
+    </head>
+    <body>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">مكتبة البابا شنوده الثالث</label>
+            <ul class="menuu">
+                <li class="active">الكل</li>
+                <li class="klam">لاهوت</li>
+                <li class="klam">كتاب مقدس</li>
+                <li class="klam">اسئلة الشعب</li>
+            </ul>
+            <div class="dropdown">
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                  <div class="b7th">
+                        <ul id="myUL">
+                            <li>uttuftyfytrrf</li>
+                            <li class="klam">1999</li>
+                            <li>1998</li>
+                            <li>1997</li>
+                            <li>1996</li>
+                            <li>1995</li>
+                            <li>2994</li>
+                        </ul>
+                  </div>  
+                </div>
+            </div>
+        </nav>
+        <section>
+            <div class="thumb" data-id="لاهوت">
+                <img src="https://th.bing.com/th/id/OIP.Uc-_-OijJHQRo_VM1ckrLQAAAA?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="1999">
+                <img src="https://th.bing.com/th/id/OIP.Uc-_-OijJHQRo_VM1ckrLQAAAA?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="لاهوت">
+                <img src="https://th.bing.com/th/id/OIP.Z_NvuCyfeG17q1QCuj6V1QAAAA?w=133&h=150&c=7&o=5&dpr=1.1&pid=1.7">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="لاهوت">
+                <img src="https://th.bing.com/th/id/OIP.EkNXlZEK4N7MnjFMCUzchgAAAA?w=117&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="لاهوت">
+                <img src="https://th.bing.com/th/id/OIP.yD9fxFWO1dWIBBUtkivqUwHaKq?w=121&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <!------------Men---------->
+
+            <div class="thumb" data-id="كتاب مقدس">
+                <img  src="https://th.bing.com/th/id/OIP.r23fyzZB6_OJoqZHF1i_jwAAAA?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="كتاب مقدس">
+                <img src="https://th.bing.com/th/id/OIP.y0hDiE54JZy7Fo5Dvs5trAAAAA?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="كتاب مقدس">
+                <img src="https://th.bing.com/th/id/OIP.NxL5J3MKBscvTm8eBVOdQQHaHa?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <!---------------------------------------laptop---------------------------------------->
+            <div class="thumb" data-id="اسئلة الشعب">
+                <img src="https://th.bing.com/th/id/OIP.yD9fxFWO1dWIBBUtkivqUwHaKq?w=121&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="اسئلة الشعب">
+                <img src="https://th.bing.com/th/id/OIP.VDpuIIsdfBw3C7wDUOs9kwAAAA?w=130&h=180&c=7&o=5&dpr=1.1&pid=1.7">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+            <div class="thumb" data-id="اسئلة الشعب">
+                <img src="https://th.bing.com/th/id/OIP.voxt1LibGvmFcJIlAjZjeAAAAA?pid=ImgDet&rs=1">
+                <a href="#">تنزيل المحتوى</a>
+            </div>
+        </section>
+        <script>
+            const buttons = document.querySelectorAll(".active,.klam");
+            const section = document.querySelectorAll(".thumb");
+            buttons.forEach(item =>{
+                item.addEventListener('click', ()=>{
+                    buttons.forEach(item =>{
+                            item.className= "";
+                    });
+                    item.className = "active";
+                    let values = item.textContent
+                    section.forEach(show =>{
+                        show.style.display= "none";
+                        if(show.getAttribute("data-id") === values || values === "الكل"){
+                            show.style.display = "block";
+                        }
+                    });
+                })
+            });
+        </script>
+        <script>
+                        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            li = div.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
+            }
+        </script>
+    </body>
+</html>
